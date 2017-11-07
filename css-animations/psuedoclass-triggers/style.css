@@ -1,0 +1,15 @@
+button:hover {
+    transform: scale(1.1);
+}
+
+p:active {
+    background: blue;
+}
+
+input:focus {
+    background: gray;
+}
+
+h1:hover {
+    color: red;
+}

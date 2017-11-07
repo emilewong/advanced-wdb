@@ -1,0 +1,11 @@
+#btn1:active {
+    background: purple;
+}
+
+#btn2:hover {
+    background: green;
+}
+
+#btn3:focus {
+    background: orange;
+}
