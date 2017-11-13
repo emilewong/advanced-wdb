@@ -1,0 +1,97 @@
+body {
+    background: #162e56;
+    overflow: hidden;
+    animation: changeSky 5s linear infinite;
+}
+
+.sun {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100px;
+    background: yellow;
+    border-radius: 100%;
+    z-index: -999;
+    animation: moveSun 5s linear infinite;
+}
+
+.hill {
+    position: absolute;
+    background: #1c4c15;
+    width: 60vw;
+    bottom: 0;
+    animation: changeGrass 5s linear infinite;
+    z-index: 9999;
+}
+
+.hill:nth-of-type(1){
+    left: 0;
+    height: 150px;
+    border-radius: 100% 50% 0 0 ;
+}
+
+.hill:nth-of-type(2){
+    right: 0;
+    height: 120px;
+    border-radius: 50% 50% 0 0 ;
+}
+
+@keyframes moveSun {
+    0% {
+        transform: translate(-5vw,5);
+        background: #fffb28;
+    }
+    25% {
+        transform: translate(25vw, -25vh);
+    }
+    37.5%{
+        transform: translate(37.5vw, -30vh);
+    }
+    50% {
+        transform: translate(50vw, -32vh);
+        background: yellow;
+    }
+    62.5% {
+        transform: translate(62.5vw, -30vh);
+    }
+    75% {
+        transform: translate(75vw, -25vh);
+    }    
+    100% {
+        transform: translate(100vw, 0);
+        background: #d13f0a;
+    }
+}
+
+
+@keyframes changeGrass {
+    0% {
+        background: #1c4c15;
+    }
+  
+    50% {
+        background: green;
+    }
+   
+    100% {
+        background: #1c4c15;
+    }
+}
+
+@keyframes changeSky {
+    0% {
+        background: #162e56;
+    }
+    50% {
+        background: #719ee8;
+    }
+    95% {
+        background: #de70e8;
+    }
+    100% {
+        background: #162e56;
+    }
+}
+
+/*#d13f0a*/
+
