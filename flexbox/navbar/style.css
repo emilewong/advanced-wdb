@@ -1,0 +1,53 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+body {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav a {
+    margin: 10px;
+    font-size: 30px;
+    text-decoration: none;
+    color: #95a5a6;
+    font-family: 'Raleway';
+    border-bottom: 1px dotted #52c9aa;
+    transition: all 0.3s ease-out;
+}
+
+nav a:hover {
+    color: #3498db;
+}
+
+nav i {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 920px) {
+    nav {
+        justify-content: space-around;
+    }
+    
+    nav a {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    nav {
+        align-items: center;
+        flex-direction: column;
+        background: #34495e;
+    }
+    
+    nav a {
+        color: whitesmoke;
+        border: none;
+        display: block;
+    }
+ 
+}
