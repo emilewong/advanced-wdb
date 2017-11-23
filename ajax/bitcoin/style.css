@@ -1,0 +1,51 @@
+body {
+    background: #1b1b1b;    
+}
+
+h3 {
+    font-weight: 100;
+    color: #e67e22;
+}
+
+h5 {
+    font-weight: 100;
+}
+
+p {
+    color: #888;
+}
+
+button {
+  background: none;  
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #888;
+}
+
+button:focus {
+    outline: none;
+}
+
+.card {
+    margin: 10px 0;
+}
+
+.card-body {
+    color: #e67e22;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.spin {
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
