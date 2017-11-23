@@ -9,12 +9,11 @@ getData();
 btn.addEventListener('click', getData);
 
 function getData() {
+    btn.classList.add('spin');
+    
     var XHR = new XMLHttpRequest();
-
     XHR.onreadystatechange = function() {
-        if(XHR.readyState < 4){
-            btn.classList.add('spin');
-        }
+       
         if (XHR.readyState === 4 && XHR.status === 200) {
             
             btn.classList.remove('spin');
