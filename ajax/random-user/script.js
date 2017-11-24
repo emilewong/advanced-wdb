@@ -17,7 +17,8 @@ function getUser() {
               return data.results[0];
             })
         })
-        .then(updateProfile);
+        .then(updateProfile)
+        .catch(handleErrors);
 }
 
 function updateProfile(user) {
@@ -28,7 +29,13 @@ function updateProfile(user) {
     city.innerText = capitalizeCity(user.location.city);
 }
 
-var constructName = function(data) {
+function handleErrors(res){
+  if(!res.ok) {
+    btn.innerText = 'Uh-Oh... Something went wrong.' ;
+  }
+}
+
+function constructName(data) {
     var fullName = '';
 
     fullName += data.first[0].toUpperCase() + data.first.slice(1) + ' ' + data.last[0].toUpperCase() + data.last.slice(1);
@@ -36,7 +43,7 @@ var constructName = function(data) {
     return fullName;
 };
 
-var capitalizeCity = function(data) {
+function capitalizeCity(data) {
     var city = data.split(' ');
     var cap = '';
 
