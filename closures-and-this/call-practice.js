@@ -4,7 +4,7 @@ var person = {
     },
     sayAge: function () {
         return this.firstName + ' is ' + this.age + ' years old.';
-    },
+    }
 };
 
 var ellie = {
