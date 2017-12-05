@@ -120,5 +120,5 @@ function extractValue(arr, key) {
     );
   }
   
-  //partition(arr, isEven); // [[2,4,6,8], [1,3,5,7]];
+  //partition(arr, isEven); 
   
