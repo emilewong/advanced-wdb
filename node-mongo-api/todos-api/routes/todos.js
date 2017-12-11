@@ -1,61 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../models');
+var helpers = require('../helpers/todos-helpers');
 
 //INDEX
-router.get('/', function (req, res) {
-    db.Todo.find()
-        .then(function (todos) {
-            res.json(todos);
-        })
-        .catch(function (err) {
-            res.send(err);
-        })
-});
-
-//CREATE
-router.post('/', function(req, res){
-    db.Todo.create(req.body)
-    .then(function(newTodo){
-        res.status(201).json(newTodo)
-    })
-    .catch(function(err){
-        res.send(err);
-    })
-});
+router.route('/')
+.get(helpers.getTodos)
+.post(helpers.createTodo);
 
 //SHOW
-router.get('/:todoId', function(req, res){
-    db.Todo.findById(req.params.todoId)
-    .then(function(todo){
-        res.json(todo)
-    })
-    .catch(function(err){
-        res.send(err);
-    })
-});
+router.route('/:todoId')
+.get(helpers.getTodo)
+.put(helpers.updateTodo)
+.delete(helpers.deleteTodo)
 
-//UPDATE
-router.put('/:todoId', function(req, res){
-    db.Todo.findOneAndUpdate({_id: req.params.todoId}, req.body, {new: true})
-    .then(function(todo){
-        res.json(todo)
-    })
-    .catch(function(err){
-        res.send(err)
-    })
-
-});
-
-//DELETE
-router.delete('/:todoId', function(req, res){
-    db.Todo.findOneAndRemove({_id: req.params.todoId})
-    .then(function(){
-        res.json({message: 'Todo Deleted!'})
-    })
-    .catch(function(err){
-        res.send(err)
-    })
-})
 
 module.exports = router;
