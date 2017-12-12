@@ -1,18 +1,39 @@
 $(function(){
     $.getJSON('/api/todos')
     .then(displayTodos)
+
+    $('#todoInput').on('keypress', function(e){
+        if(e.which == 13) {
+            postTodo($(this).val());
+        }
+    });
 });
 
 function displayTodos(todos) {
-    var todosLis = todos.map(createTodoLi);
-    $('.list').html(todosLis);
+   todos.forEach(makeTodo);
 }
 
-function createTodoLi(todo){
+function makeTodo(todo){
     var $li = $('<li class="task">' + todo.name + '</li>');
 
     if(todo.completed) {
         $li.addClass('done');
     }
-    return $li;
+    
+    $('.list').prepend($li);
+}
+
+function postTodo(text) {
+    var data = {
+        name: text
+    }
+
+    $.post('/api/todos', data)
+    .then(function(todo){
+        makeTodo(todo);
+        $('#todoInput').val('');
+    })
+    .catch(function(err){
+        console.log(err)
+    });
 }
