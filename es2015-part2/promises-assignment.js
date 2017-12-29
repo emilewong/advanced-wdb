@@ -36,7 +36,7 @@ function hasMostFollowers(...names) {
     let url = 'https://api.github.com/users/';
     let users = names.map(user => $.getJSON(url + user));
 
-    return Promise.all(users).then(function (data) {
+    return Promise.all(users).then(data => {
         let mostPop = data.sort((a, b) => a.followers < b.followers)[0];
         return `${mostPop.name} has the most followers with ${mostPop.followers}`;
     });
@@ -51,9 +51,9 @@ function hasMostFollowers(...names) {
 function starWarsString(num) {
     let url = `https://swapi.co/api/people/${num}/`;
 
-    return $.getJSON(url).then(function (person) {
-        return $.getJSON(person.films[0]).then(function (film) {
-            return $.getJSON(film.planets[0]).then(function (planet) {
+    return $.getJSON(url).then(person => {
+        return $.getJSON(person.films[0]).then(film => {
+            return $.getJSON(film.planets[0]).then(planet => {
                 return `${person.name} is featured in ${film.title}, directed by ${film.director}, and it takes place on ${planet.name}`
             })
         });
